@@ -1,0 +1,86 @@
+Breakpoint 1, main () at ExploreTheTwistyLabyrinth.cpp:18
+18          if (isPathToFreedom(start, kPathOutOfTwistyMaze)) {
+(gdb) i locals
+m = {_vptr.Maze = 0x555555567c10 <vtable for Maze+16>, grid = {
+    _vptr.Grid = 0x555555567c30 <vtable for Grid<MazeCell*>+16>, 
+    Rows = 0x55555557af00, NumRows = 4}, numRows = 4, numCols = 4, 
+  kNumTwistyRooms = 12}
+start = 0x55555557b6b0
+(gdb) *start
+Undefined command: "".  Try "help".
+(gdb) p *start
+$1 = {whatsHere = "", north = 0x0, south = 0x55555557b840, east = 0x0, 
+  west = 0x55555557b7a0}
+(gdb) p *(start->west)
+$2 = {whatsHere = "", north = 0x55555557b750, south = 0x55555557b6b0, 
+  east = 0x0, west = 0x55555557b700}
+(gdb) p *(start->west->north)
+$3 = {whatsHere = "", north = 0x55555557b890, south = 0x55555557b010, 
+  east = 0x55555557b7a0, west = 0x0}
+(gdb) x *(start->west->north)
+Value can't be converted to integer.
+(gdb) p (start->west->north)
+$4 = (MazeCell *) 0x55555557b750
+(gdb) p *(start->west->north)
+$5 = {whatsHere = "", north = 0x55555557b890, south = 0x55555557b010, 
+  east = 0x55555557b7a0, west = 0x0}
+(gdb) p *(start->west->north->north)
+$6 = {whatsHere = "Potion", north = 0x0, south = 0x55555557b750, east = 0x0, 
+  west = 0x0}
+(gdb) p (start->west->north->north)
+$7 = (MazeCell *) 0x55555557b890
+(gdb) p (start->west->north)
+$8 = (MazeCell *) 0x55555557b750
+(gdb) p *(start->west->north)
+$9 = {whatsHere = "", north = 0x55555557b890, south = 0x55555557b010, 
+  east = 0x55555557b7a0, west = 0x0}
+(gdb) p *(start->west->north->south)
+$10 = {whatsHere = "", north = 0x55555557b7f0, south = 0x55555557ba10, 
+  east = 0x0, west = 0x55555557b750}
+(gdb) p (start->west->north->south)
+$11 = (MazeCell *) 0x55555557b010
+(gdb) p *(start->west->north->south)
+$12 = {whatsHere = "", north = 0x55555557b7f0, south = 0x55555557ba10, 
+  east = 0x0, west = 0x55555557b750}
+(gdb) p *(start->west->north->south->north)
+$13 = {whatsHere = "Spellbook", north = 0x55555557b010, south = 0x0, 
+  east = 0x0, west = 0x0}
+(gdb) p (start->west->north->south->north)
+$14 = (MazeCell *) 0x55555557b7f0
+(gdb) p *(start->west->north->south->north)
+$15 = {whatsHere = "Spellbook", north = 0x55555557b010, south = 0x0, 
+  east = 0x0, west = 0x0}
+(gdb) p (start->west->north->south)
+$16 = (MazeCell *) 0x55555557b010
+(gdb) p *(start->west->north->south)
+$17 = {whatsHere = "", north = 0x55555557b7f0, south = 0x55555557ba10, 
+  east = 0x0, west = 0x55555557b750}
+(gdb) p (start->west->north->south->south)
+$18 = (MazeCell *) 0x55555557ba10
+(gdb) p *(start->west->north->south->south)
+$19 = {whatsHere = "", north = 0x55555557b010, south = 0x0, east = 0x0, 
+  west = 0x55555557b8e0}
+(gdb) p *(start->west->north->south->south->west)
+$20 = {whatsHere = "", north = 0x0, south = 0x0, east = 0x55555557b840, 
+  west = 0x55555557ba10}
+(gdb) p (start->west->north->south->south->west)
+$21 = (MazeCell *) 0x55555557b8e0
+(gdb) p *(start->west->north->south->south->west)
+$22 = {whatsHere = "", north = 0x0, south = 0x0, east = 0x55555557b840, 
+  west = 0x55555557ba10}
+(gdb) p *(start)
+$23 = {whatsHere = "", north = 0x0, south = 0x55555557b840, east = 0x0, 
+  west = 0x55555557b7a0}
+(gdb) p *(start->south)
+$24 = {whatsHere = "", north = 0x55555557b640, south = 0x0, 
+  east = 0x55555557b8e0, west = 0x55555557b6b0}
+(gdb) p *(start->south->north)
+$25 = {whatsHere = "", north = 0x55555557b9c0, south = 0x55555557b840, 
+  east = 0x0, west = 0x0}
+(gdb) p (start->south->north)
+$26 = (MazeCell *) 0x55555557b640
+(gdb) p (start->south->north->north)
+$27 = (MazeCell *) 0x55555557b9c0
+(gdb) p *(start->south->north->north)
+$28 = {whatsHere = "Wand", north = 0x0, south = 0x55555557b700, 
+  east = 0x55555557b640, west = 0x0}

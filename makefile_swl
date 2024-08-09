@@ -1,0 +1,15 @@
+build:
+	gcc -g -Wall main.c -o wordladder.exe
+
+run:
+	./wordladder.exe
+
+run_input:
+	./wordladder.exe < input.txt
+
+valgrind: 
+	valgrind --leak-check=full ./wordladder.exe
+
+clean:
+	rm -f *.exe
+	
